@@ -1,0 +1,39 @@
+{%extends 'layout.html' %}
+<!-- Add your content of header -->
+{%block content%}
+<!-- inject header -->
+<body class="minimal">
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+  {%include 'nav-index.html'%}
+
+  <!-- Add your site or app content here -->
+  <div
+    class="hero-full-container background-image-container white-text-container"
+    style="background-image: url('./static/assets/images/space.jpg');"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="hero-full-wrapper">
+            <div class="text-content">
+              <h1>
+                Ekaabo !!,<br />
+                <span id="typed-strings">
+                  <span>I'm Eyimofe Ogunbiyi</span>
+                  <span>A backend developer</span>
+                  <span>Working with NodeJs and Python</span>
+                </span>
+                <span id="typed"></span>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%endblock%}
+</body>

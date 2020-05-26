@@ -1,0 +1,164 @@
+{%extends 'layout.html' %}
+<!-- Add your content of header -->
+{%block content%}
+<!-- inject header -->
+{%include 'nav.html'%}
+
+<body class="">
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container">
+        <button
+          type="button"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#navbar-collapse"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/" title="">01 : Home</a></li>
+            <li><a href="/works" title="">02 : Works</a></li>
+            <li><a href="/about" title="">03 : About me</a></li>
+            <li><a href="/contact" title="">04 : Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 section-container-spacer">
+          <div class="text-center">
+            <h1 class="h2">02 : Works</h1>
+            <p>
+              Here's a collection of the various projects i've worked on.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div id="myCarousel" class="carousel slide projects-carousel">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <div class="row">
+                  {% for project in projects[0]%}
+                  <div class="col-sm-4">
+                    <a
+                      href="{{url_for ('get_project', slug=project.slug)}}"
+                      title=""
+                      class="black-image-project-hover"
+                    >
+                      <img
+                        src="{{project.images[0]}}"
+                        alt=""
+                        class="img-responsive"
+                      />
+                    </a>
+                    <div class="card-container card-container-lg">
+                      <h3>{{project.name}}</h3>
+                      <p>
+                        {{project.description}}
+                      </p>
+                      <a
+                        href="{{url_for ('get_project', slug=project.slug)}}"
+                        title=""
+                        class="btn btn-default"
+                        >Discover</a
+                      >
+                    </div>
+                  </div>
+                  {% endfor%}
+                </div>
+                <!--/row-->
+              </div>
+              <!--/item-->
+              <div class="item">
+                <div class="row">
+                  {%for project in projects[1][:length(projects)]%}
+
+                  <div class="col-sm-4">
+                    <a
+                      href="{{url_for ('get_project', slug=project.slug)}}"
+                      class="black-image-project-hover"
+                    >
+                      <img
+                        src="{{project.images[0]}}"
+                        alt="Image"
+                        class="img-responsive"
+                      />
+                    </a>
+                    <div class="card-container">
+                      <h3>{{project.name}}</h3>
+                      <p>
+                        {{project.description}}
+                      </p>
+                      <a
+                        href="{{url_for ('get_project', slug=project.slug)}}"
+                        class="btn btn-default"
+                        >Discover</a
+                      >
+                    </div>
+                  </div>
+                  {%endfor%}
+                </div>
+                <!--/row-->
+              </div>
+              <!--/item-->
+            </div>
+            <!--/carousel-inner-->
+            <a
+              class="left carousel-control"
+              href="#myCarousel"
+              data-slide="prev"
+              >‹</a
+            >
+
+            <a
+              class="right carousel-control"
+              href="#myCarousel"
+              data-slide="next"
+              >›</a
+            >
+          </div>
+
+          <!--/myCarousel-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-container text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            © UNTITLED | Website created with
+            <a
+              href="http://www.mashup-template.com/"
+              title="Create website with free html template"
+              >Mashup Template</a
+            >/<a href="https://www.unsplash.com/" title="Beautiful Free Images"
+              >Unsplash</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+{%endblock%}
